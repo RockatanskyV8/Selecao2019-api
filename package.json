@@ -1,0 +1,26 @@
+{
+  "name": "selecao2019-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "guid": "0.0.12",
+    "http": "0.0.0",
+    "jsonwebtoken": "^7.4.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
