@@ -1,17 +1,19 @@
 'use strict'
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const router = express.Router();
 
-const route = router.get('/', (req, res, next) => {
-  res.status(200).send({
-    title: 'Seleção 2019',
-    version: '0.0.1'
-  });
-});
-app.use('/', route)
+const pessoaRoute = require("./routes/pessoa-route")
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+app.use('/pessoas', pessoaRoute);
 
 
 module.exports = app;
