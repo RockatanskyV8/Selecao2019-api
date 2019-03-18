@@ -11,6 +11,8 @@ const controller = require('../controllers/pessoas-controller');
 //   });
 // });
 
+router.get('/', controller.get);
+
 router.post('/', controller.post);
 
 router.put('/:id', controller.put);
