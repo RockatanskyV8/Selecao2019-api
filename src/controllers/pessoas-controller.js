@@ -6,8 +6,6 @@ const repository = require('../repositories/pessoas-repository');
 
 exports.get = async(req, res, next) => {
   try{
-    // process.stdout.write(req.body, req.params);
-    console.log(req.body);
     var data = await repository.get();
     res.status(200).send(data)
   }catch(e){
@@ -35,7 +33,7 @@ exports.getByNome = async(req, res, next) => {
     var data = await repository.getByNome(req.params.nome);
     res.status(200).send(data);
   }catch(e){
-    res.status(500).send({message:"teste"});
+    res.status(500).send({message:"Falha na requisição"});
     console.log(e);
   }
 }
@@ -48,13 +46,6 @@ exports.getBySobrenome = async(req, res, next) => {
     res.status(500).send({message:"teste"});
     console.log(e);
   }
-  // Pessoa
-  //   .findById(req.params.sobrenome)
-  //     .then(data => {
-  //       res.status(200).send(data);
-  //     }).catch(e => {
-  //       res.status(400).send(e);
-  //     });
 }
 
 exports.post = async(req, res, next) => {
