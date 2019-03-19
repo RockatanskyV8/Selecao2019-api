@@ -12,6 +12,9 @@ const controller = require('../controllers/pessoas-controller');
 // });
 
 router.get('/', controller.get);
+router.get('/nome/:nome', controller.getByNome);
+router.get('/sobrenome/:sobrenome', controller.getBySobrenome);
+router.get('/:id', controller.getById);
 
 router.post('/', controller.post);
 
