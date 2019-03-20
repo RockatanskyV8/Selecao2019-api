@@ -37,6 +37,8 @@ exports.update = async(id, data) => {
     });
 }
 exports.delete = async(id) => {
-  await Pessoa
-    .findOneAndRemove(id);
+  // console.log(await Pessoa.findById(id));
+  await Pessoa.findByIdAndRemove(id);
+  // await Pessoa
+  //   .findOneAndRemove(id);
 }

@@ -38,6 +38,11 @@ exports.getByCidade  = async(cidade) => {
   return res;
 }
 
+exports.getByTipo  = async(tipo) => {
+  const res = await Endereco.find({tipo: tipo});
+  return res;
+}
+
 exports.create = async(data) => {
   var product = new Endereco(data);
   await product.save();
@@ -50,11 +55,14 @@ exports.update = async(id, data) => {
           rua: data.rua,
           cep: data.cep,
           bairro: data.bairro,
-          cidade: data.cidade
+          cidade: data.cidade,
+          tipo: data.tipo
         }
     });
 }
 exports.delete = async(id) => {
-  await Endereco
-    .findOneAndRemove(id);
+  // console.log(await Endereco.findById(id));
+  await Endereco.findByIdAndRemove(id);
+  // await Endereco
+  //   .findOneAndRemove(id);
 }

@@ -9,7 +9,8 @@ const schema = new Schema({
   rua:{type: String, required: true, trim:true},
   cep:{type: String, required: true, trim:true},
   bairro:{type: String, required: true, trim:true},
-  cidade:{type: String, required: true, trim:true}
+  cidade:{type: String, required: true, trim:true},
+  tipo:{type: String, enum: ['residencial', 'comercial'], default: 'residencial'},
 });
 
 module.exports = mongoose.model('Endereco', schema);

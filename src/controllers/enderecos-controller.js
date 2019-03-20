@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Endereco = mongoose.model('Endereco');
+const ValidationContract = require('../validator/fluent-validator');
 const repository = require('../repositories/enderecos-repository');
 
 exports.get = async(req, res, next) => {
@@ -89,6 +90,14 @@ exports.getByCidade = async(req, res, next) => {
 }
 
 exports.post = async(req, res, next) => {
+  let contract = new ValidationContract();
+  contract.isCep(req.body.cep, "Cep invalido");
+
+  if (!contract.isValid()) {
+      res.status(400).send(contract.errors()).end();
+      return;
+  }
+
   try{
     await repository.create(req.body)
     res.status(201).send({
