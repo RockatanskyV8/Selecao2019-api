@@ -3,6 +3,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
+const swaggerUI = require('swagger-ui-express');
+const swaggerDoc = require('./swagger/swagger.json');
+
 const config = require('./config');
 
 const app = express();
@@ -21,6 +25,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 app.use('/pessoas', pessoaRoute);
 app.use('/enderecos', enderecoRoute);
 

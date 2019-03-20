@@ -1,0 +1,8 @@
+{
+  "swagger":"2.0",
+  "info":{
+    "version":"1.0.0",
+    "title":"API NodeJS Seleção 2019",
+    "description":"API de pessoas e endereços para a Seleção de 2019, Stefanini."
+  }
+}
