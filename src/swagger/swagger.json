@@ -4,5 +4,463 @@
     "version":"1.0.0",
     "title":"API NodeJS Seleção 2019",
     "description":"API de pessoas e endereços para a Seleção de 2019, Stefanini."
+  },
+  "host": "localhost:3000",
+  "basePath": "",
+  "tags":[{
+      "name":"Endereços",
+      "description":"CRUD de endereços"
+  }],
+  "schemes":[
+    "http"
+  ],
+  "costumes":[
+    "application/json"
+  ],
+  "produces":[
+    "application/json"
+  ],
+  "paths":{
+    "/enderecos":{
+      "get":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Retorna todos os endereços do sistema",
+        "responses":{
+          "200":{
+            "description": "Ok",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        }
+      },
+      "post":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Insere novos endereços no sistema",
+        "parameters":[
+          {
+            "in":"body",
+            "name":"body",
+            "description":"Endereço a ser criado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/id"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/enderecos/{id}":{
+      "put":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Insere novos endereços no sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+              "application/json": {
+                  "schema": {
+                      "$ref": "#/definitions/Enderecos"
+                  }
+              }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"id",
+            "description":"Endereço a ser criado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          },
+          {
+            "in":"body",
+            "name":"body",
+            "description":"Endereço a ser criado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      },
+      "delete":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Enderecos"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"id",
+            "description":"Endereço a ser excluido",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      },
+      "get":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Enderecos"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"id",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/enderecos/num/{num}":{
+      "get":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Enderecos"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"num",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/enderecos/rua/{rua}":{
+      "get":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Enderecos"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"rua",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/enderecos/cep/{cep}":{
+      "get":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Enderecos"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"cep",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/enderecos/bairro/{bairro}":{
+      "get":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Enderecos"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"bairro",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/enderecos/cidade/{cidade}":{
+      "get":{
+        "tags":[
+          "Endereços"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Enderecos"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"cidade",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Enderecos"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Enderecos"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    }
+  },
+  "definitions":{
+    "id":{
+      "properties":{
+        "void":{
+          "type":"string"
+        }
+      }
+    },
+    "Enderecos":{
+      "type":"object",
+      "properties":{
+        "num":{
+          "type": "string"
+        },
+        "rua":{
+          "type": "string"
+        },
+        "cep":{
+          "type": "string"
+        },
+        "bairro":{
+          "type": "string"
+        },
+        "cidade":{
+          "type": "string"
+        },
+        "tipo":{
+          "type": "string", "enum": ["residencial", "comercial"], "default": "residencial"
+        }
+      }
+    },
+    "Pessoa":{
+      "type":"object",
+      "properties":{
+        "nome":{
+          "type": "string"
+        },
+        "sobrenome":{
+          "type": "string"
+        },
+        "enderecos":{
+          "type":"object",
+          "$ref":"#/definitions/Enderecos"
+        }
+      }
+    }
   }
 }
