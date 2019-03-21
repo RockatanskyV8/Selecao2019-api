@@ -10,7 +10,12 @@
   "tags":[{
       "name":"Endereços",
       "description":"CRUD de endereços"
-  }],
+    },
+    {
+        "name":"Pessoas",
+        "description":"CRUD de pessoas"
+      }
+  ],
   "schemes":[
     "http"
   ],
@@ -21,6 +26,230 @@
     "application/json"
   ],
   "paths":{
+    "/pessoas":{
+      "get":{
+        "tags":[
+          "Pessoas"
+        ],
+        "sumary":"Retorna todos as pessoas do sistema",
+        "responses":{
+          "200":{
+            "description": "Ok",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          }
+        }
+      },
+      "post":{
+        "tags":[
+          "Pessoas"
+        ],
+        "sumary":"Insere novas pessoas no sistema",
+        "parameters":[
+          {
+            "in":"body",
+            "name":"body",
+            "description":"Pessoa a ser cadastrada",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/PessoaId"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/pessoas/{id}":{
+      "put":{
+        "tags":[
+          "Pessoas"
+        ],
+        "sumary":"Atualiza pessoas cadastradas",
+        "requestBody": {
+          "description": "Objeto Pessoa",
+          "required": true,
+          "content": {
+              "application/json": {
+                  "schema": {
+                      "$ref": "#/definitions/Pessoas"
+                  }
+              }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"id",
+            "description":"Pessoa a ser atualizada",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          },
+          {
+            "in":"body",
+            "name":"body",
+            "description":"Pessoa a ser atualizada",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Pessoas"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      },
+      "delete":{
+        "tags":[
+          "Pessoas"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Pessoas"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"id",
+            "description":"Endereço a ser excluido",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Pessoas"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/pessoas/nome/{nome}":{
+      "get":{
+        "tags":[
+          "Pessoas"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Pessoas"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"nome",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Pessoas"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
+    "/pessoas/sobrenome/{sobrenome}":{
+      "get":{
+        "tags":[
+          "Pessoas"
+        ],
+        "sumary":"Exclui os endereços do sistema",
+        "requestBody": {
+          "description": "Objeto Endereço",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Pessoas"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"sobrenome",
+            "description":"Endereço a ser buscado",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Pessoas"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      }
+    },
     "/enderecos":{
       "get":{
         "tags":[
@@ -58,7 +287,7 @@
           "200":{
             "description":"OK",
             "schema":{
-              "$ref": "#/definitions/id"
+              "$ref": "#/definitions/EnderecoId"
             }
           },
           "400":{
@@ -417,7 +646,14 @@
     }
   },
   "definitions":{
-    "id":{
+    "EnderecoId":{
+      "properties":{
+        "void":{
+          "type":"string"
+        }
+      }
+    },
+    "PessoaId":{
       "properties":{
         "void":{
           "type":"string"
@@ -447,7 +683,7 @@
         }
       }
     },
-    "Pessoa":{
+    "Pessoas":{
       "type":"object",
       "properties":{
         "nome":{
@@ -456,9 +692,10 @@
         "sobrenome":{
           "type": "string"
         },
-        "enderecos":{
-          "type":"object",
-          "$ref":"#/definitions/Enderecos"
+        "enderecos":
+        {
+        "type":"array",
+        "$ref":"#/definitions/EnderecoId"
         }
       }
     }
