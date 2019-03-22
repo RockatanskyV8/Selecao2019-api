@@ -680,6 +680,11 @@
         },
         "tipo":{
           "type": "string", "enum": ["residencial", "comercial"], "default": "residencial"
+        },
+        "residente":
+        {
+        "type":"object",
+        "$ref":"#/definitions/PessoaId"
         }
       }
     },
@@ -691,11 +696,6 @@
         },
         "sobrenome":{
           "type": "string"
-        },
-        "enderecos":
-        {
-        "type":"array",
-        "$ref":"#/definitions/EnderecoId"
         }
       }
     }

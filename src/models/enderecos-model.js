@@ -11,6 +11,7 @@ const schema = new Schema({
   bairro:{type: String, required: true, trim:true},
   cidade:{type: String, required: true, trim:true},
   tipo:{type: String, enum: ['residencial', 'comercial'], default: 'residencial'},
+  residente:{type: mongoose.Schema.Types.ObjectId , ref:'Pessoa'}
 });
 
 module.exports = mongoose.model('Endereco', schema);
