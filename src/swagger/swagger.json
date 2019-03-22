@@ -126,7 +126,48 @@
         "tags":[
           "Pessoas"
         ],
-        "sumary":"Exclui os endereços do sistema",
+        "sumary":"Exclui pessoas do sistema",
+        "requestBody": {
+          "description": "Objeto Pessoa",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                  "$ref": "#/definitions/Pessoas"
+              }
+            }
+          }
+        },
+        "parameters":[
+          {
+            "in":"path",
+            "name":"id",
+            "description":"Pessoa a ser excluida",
+            "schema":{
+              "$ref":"#/definitions/Pessoas"
+            }
+          }
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "responses":{
+          "200":{
+            "description":"OK",
+            "schema":{
+              "$ref": "#/definitions/Pessoas"
+            }
+          },
+          "400":{
+            "description":"Falha na requisição"
+          }
+        }
+      },
+      "get":{
+        "tags":[
+          "Pessoas"
+        ],
+        "sumary":"Pessoa a ser retornada",
         "requestBody": {
           "description": "Objeto Endereço",
           "required": true,
@@ -142,7 +183,7 @@
           {
             "in":"path",
             "name":"id",
-            "description":"Endereço a ser excluido",
+            "description":"Pessoa a ser buscada",
             "schema":{
               "$ref":"#/definitions/Pessoas"
             }
@@ -169,9 +210,9 @@
         "tags":[
           "Pessoas"
         ],
-        "sumary":"Exclui os endereços do sistema",
+        "sumary":"Retorna Pessoas com o nome igual ao inserido",
         "requestBody": {
-          "description": "Objeto Endereço",
+          "description": "Objeto Pessoa",
           "required": true,
           "content": {
             "application/json": {
@@ -185,7 +226,7 @@
           {
             "in":"path",
             "name":"nome",
-            "description":"Endereço a ser buscado",
+            "description":"Pessoa buscada",
             "schema":{
               "$ref":"#/definitions/Pessoas"
             }
@@ -212,7 +253,7 @@
         "tags":[
           "Pessoas"
         ],
-        "sumary":"Exclui os endereços do sistema",
+        "sumary":"Retorna as pessoas com o sobrenome fornecido",
         "requestBody": {
           "description": "Objeto Endereço",
           "required": true,
@@ -228,7 +269,7 @@
           {
             "in":"path",
             "name":"sobrenome",
-            "description":"Endereço a ser buscado",
+            "description":"Sobrenome a ser buscado",
             "schema":{
               "$ref":"#/definitions/Pessoas"
             }
@@ -647,18 +688,12 @@
   },
   "definitions":{
     "EnderecoId":{
-      "properties":{
-        "void":{
-          "type":"string"
-        }
-      }
+      "type":"string",
+      "format":"Hexadecimal"
     },
     "PessoaId":{
-      "properties":{
-        "void":{
-          "type":"string"
-        }
-      }
+      "type":"string",
+      "format":"Hexadecimal"
     },
     "Enderecos":{
       "type":"object",
@@ -681,7 +716,7 @@
         "tipo":{
           "type": "string", "enum": ["residencial", "comercial"], "default": "residencial"
         },
-        "residente":
+        "residenteID":
         {
         "type":"object",
         "$ref":"#/definitions/PessoaId"
